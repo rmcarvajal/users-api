@@ -30,3 +30,5 @@ if (NODE_ENV !== 'production') {
 //  console.log(req.body);
 //  res.send('hello!');
 //});
+
+export default app;
