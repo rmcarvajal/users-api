@@ -1,20 +1,16 @@
 import { Router } from 'express';
+import { UserController } from './user.controller';
 
 export class UserRouter {
   public router: Router;
+  private userController: UserController;
 
-  constructor() {
+  constructor(userController: UserController) {
+    this.userController = userController;
     this.router = Router();
-    this.router.get('/users', (req, res) => {
-      return res.send('get users');
-    });
-    this.router.post('/users', (req, res) => {
-      return res.send('post users');
-    });
+    this.router.get('/users', this.userController.getUsers);
+    this.router.post('/users', this.userController.createUser);
 
-    this.router.delete('/users/:id', (req, res) => {
-      console.log(req.params);
-      return res.send('delete users');
-    });
+    this.router.delete('/users/:id', this.userController.deleteUser);
   }
 }
