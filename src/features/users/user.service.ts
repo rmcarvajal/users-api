@@ -15,6 +15,7 @@ export class UserService {
       id: new Date().getTime().toString(),
       name: user.name,
       email: user.email,
+      image: user.image
     };
     this.users.push(newUser);
 

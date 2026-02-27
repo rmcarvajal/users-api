@@ -15,7 +15,7 @@ export class UserController {
   };
 
   createUser = (req: Request, res: Response) => {
-    const { name, email } = req.body;
+    const { name, email, image } = req.body;
     if (name === undefined) {
       throw Boom.badRequest('name is required');
     }
@@ -27,6 +27,7 @@ export class UserController {
     const user = this.userService.createUser({
       name,
       email,
+      image
     });
 
     return res.json(user);
